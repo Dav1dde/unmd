@@ -1,6 +1,7 @@
 pub mod active_connection;
 pub mod connection;
 pub mod gen;
+pub mod script;
 
 use dbus::blocking::{Connection, Proxy};
 use dbus::Path;
@@ -48,6 +49,12 @@ impl NetworkManager {
 
     pub fn connection(&self) -> &Connection {
         &self.connection
+    }
+}
+
+impl Default for NetworkManager {
+    fn default() -> Self {
+        Self::new()
     }
 }
 
